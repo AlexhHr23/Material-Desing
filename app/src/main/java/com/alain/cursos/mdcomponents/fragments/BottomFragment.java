@@ -22,7 +22,7 @@ import butterknife.Unbinder;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ButtonFragment extends Fragment {
+public class BottomFragment extends Fragment {
 
     public static final String TAG = "Button";
 
@@ -38,7 +38,7 @@ public class ButtonFragment extends Fragment {
         return mInstance;
     }
 
-    public ButtonFragment() {
+    public BottomFragment() {
         // Required empty public constructor
     }
 
@@ -47,7 +47,7 @@ public class ButtonFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_button, container, false);
+        View view = inflater.inflate(R.layout.fragment_buttom, container, false);
         mUnbinder = ButterKnife.bind(this, view);
         return view;
     }

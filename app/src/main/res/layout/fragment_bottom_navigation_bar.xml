@@ -3,14 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.BottonNavigationBarFragment">
+    tools:context=".fragments.BottomNavigationBarFragment">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottonNavigataion"
+        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:menu="@menu/menu_botton_nav"/>
+        app:menu="@menu/menu_bottom_nav"
+        android:background="@android:color/holo_blue_bright"
+        app:itemIconTint="@drawable/states_colors_bottom_navigation"
+        app:itemTextColor="@drawable/states_colors_bottom_navigation"/>
+        //style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
 
 
 

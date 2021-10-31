@@ -11,8 +11,8 @@ package com.alain.cursos.mdcomponents.utils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.alain.cursos.mdcomponents.fragments.BottonNavigationBarFragment;
-import com.alain.cursos.mdcomponents.fragments.ButtonFragment;
+import com.alain.cursos.mdcomponents.fragments.BottomFragment;
+import com.alain.cursos.mdcomponents.fragments.BottomNavigationBarFragment;
 
 public class CommonUtils {
 
@@ -28,13 +28,13 @@ public class CommonUtils {
 
         switch (nameFragment){
             //SCROLL
-            case ButtonFragment.TAG:
-                fragment = new ButtonFragment();
+            case BottomFragment.TAG:
+                fragment = new BottomFragment();
                 break;
 
             //STATIC
-            case BottonNavigationBarFragment.TAG:
-            fragment = new BottonNavigationBarFragment();
+            case BottomNavigationBarFragment.TAG:
+            fragment = new BottomNavigationBarFragment();
         }
 
         return fragment;
