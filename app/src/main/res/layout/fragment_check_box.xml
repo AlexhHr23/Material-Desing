@@ -71,4 +71,23 @@
         app:layout_constraintBottom_toBottomOf="@id/cbDisableSelect"/>
 
 
+    <com.buildware.widget.indeterm.IndeterminateCheckBox
+        android:id="@+id/cbEnableIndeterminate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:indeterminate="true"
+        app:layout_constraintStart_toStartOf="@id/cbDisableSelect"
+        app:layout_constraintEnd_toEndOf="@id/cbDisableSelect"
+        app:layout_constraintTop_toBottomOf="@id/cbDisableSelect"/>
+
+    <TextView
+        android:id="@+id/tvEnableIndeterminate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status_enabled_indeterminate"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/cbEnableIndeterminate"
+        app:layout_constraintBottom_toBottomOf="@id/cbEnableIndeterminate"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
