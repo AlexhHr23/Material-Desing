@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,11 @@ import android.view.ViewGroup;
 import com.alain.cursos.mdcomponents.R;
 import com.alain.cursos.mdcomponents.utils.Component;
 import com.alain.cursos.mdcomponents.utils.Constants;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class TextFieldFragment extends Fragment {
@@ -21,6 +27,12 @@ public class TextFieldFragment extends Fragment {
     private static Component mInstance;
 
     Unbinder mUnbinder;
+    @BindView(R.id.etPrice)
+    TextInputEditText etPrice;
+    @BindView(R.id.etCapitalLetter)
+    TextInputEditText etCapitalLetter;
+    @BindView(R.id.tilCapitalLetter)
+    TextInputLayout tilCapitalLetter;
 
     public static Component getmInstance(){
         mInstance = new Component();
@@ -39,6 +51,40 @@ public class TextFieldFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_text_filed, container, false);
+        View view = inflater.inflate(R.layout.fragment_text_filed, container, false);
+        mUnbinder = ButterKnife.bind(this, view);
+
+        tilCapitalLetter.setEndIconOnClickListener(view1 -> {
+            if (etCapitalLetter.getText() != null){
+                String contentStr = etCapitalLetter.getText().toString();
+                etCapitalLetter.setText(contentStr.toUpperCase());
+            }
+        });
+
+        etPrice.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (!editable.toString().isEmpty() && Integer.valueOf(editable.toString()) < 5)
+                    etPrice.setError(getString(R.string.error_price_min));
+            }
+        });
+
+        return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mUnbinder.unbind();
     }
 }
