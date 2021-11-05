@@ -2,6 +2,7 @@ package com.alain.cursos.mdcomponents.fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +14,9 @@ import com.alain.cursos.mdcomponents.R;
 import com.alain.cursos.mdcomponents.utils.Component;
 import com.alain.cursos.mdcomponents.utils.Constants;
 import com.buildware.widget.indeterm.IndeterminateCheckBox;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +29,8 @@ public class CardFragment extends Fragment {
     private static Component mInstance;
 
     Unbinder mUnbinder;
+    @BindView(R.id.imgCardLarge)
+    AppCompatImageView imgCardLarge;
 
 
     public static Component getmInstance(){
@@ -48,6 +54,15 @@ public class CardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_card, container, false);
         mUnbinder = ButterKnife.bind(this, view);
 
+        RequestOptions options = new RequestOptions()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop();
+
+        Glide.with(this)
+                .load("https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_" +
+                        "-_NCI_Visuals_Online.jpg")
+                .apply(options)
+                .into(imgCardLarge);
 
         return view;
     }
