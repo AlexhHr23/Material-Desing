@@ -3,6 +3,7 @@ package com.alain.cursos.mdcomponents.fragments;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import com.alain.cursos.mdcomponents.R;
 import com.alain.cursos.mdcomponents.utils.Component;
 import com.alain.cursos.mdcomponents.utils.Constants;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 
 import butterknife.BindView;
@@ -25,6 +27,8 @@ public class MenuFragment extends Fragment {
     private static Component mInstance;
 
     Unbinder mUnbinder;
+    @BindView(R.id.btnMenuPopup)
+    MaterialButton btnMenuPopup;
 
     public static Component getmInstance(){
         mInstance = new Component();
@@ -46,6 +50,13 @@ public class MenuFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
         mUnbinder = ButterKnife.bind(this, view);
+
+        btnMenuPopup.setOnClickListener(viewl ->{
+            PopupMenu popupMenu = new PopupMenu(getActivity(), viewl);
+            popupMenu.getMenuInflater().inflate(R.menu.menu_bottom_nav, popupMenu.getMenu());
+            popupMenu.show();
+
+        });
 
         return view;
     }

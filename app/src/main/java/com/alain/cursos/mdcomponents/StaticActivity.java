@@ -1,6 +1,8 @@
 package com.alain.cursos.mdcomponents;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -8,6 +10,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.alain.cursos.mdcomponents.fragments.MenuFragment;
 import com.alain.cursos.mdcomponents.utils.CommonUtils;
 import com.alain.cursos.mdcomponents.utils.Constants;
 
@@ -38,6 +41,13 @@ public class StaticActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setTitle(nameFragment);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_bottom_nav, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
