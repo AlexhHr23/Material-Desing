@@ -8,6 +8,8 @@ package com.alain.cursos.mdcomponents.utils;
  * More info: https://www.udemy.com/especialidad-en-firebase-para-android-con-mvp-profesional/
  */
 
+import android.view.Menu;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -16,6 +18,7 @@ import com.alain.cursos.mdcomponents.fragments.BottomNavigationBarFragment;
 import com.alain.cursos.mdcomponents.fragments.CardFragment;
 import com.alain.cursos.mdcomponents.fragments.CheckboxFragment;
 import com.alain.cursos.mdcomponents.fragments.FloatingActionBottomFragment;
+import com.alain.cursos.mdcomponents.fragments.MenuFragment;
 import com.alain.cursos.mdcomponents.fragments.SnackBarFragment;
 import com.alain.cursos.mdcomponents.fragments.TextFieldFragment;
 
@@ -56,6 +59,9 @@ public class CommonUtils {
 
             case FloatingActionBottomFragment.TAG:
                 fragment = new FloatingActionBottomFragment();
+                break;
+            case MenuFragment.TAG:
+                fragment = new MenuFragment();
                 break;
         }
 

@@ -12,6 +12,7 @@ import com.alain.cursos.mdcomponents.fragments.BottomFragment;
 import com.alain.cursos.mdcomponents.fragments.CardFragment;
 import com.alain.cursos.mdcomponents.fragments.CheckboxFragment;
 import com.alain.cursos.mdcomponents.fragments.FloatingActionBottomFragment;
+import com.alain.cursos.mdcomponents.fragments.MenuFragment;
 import com.alain.cursos.mdcomponents.fragments.SnackBarFragment;
 import com.alain.cursos.mdcomponents.fragments.TextFieldFragment;
 import com.alain.cursos.mdcomponents.utils.Component;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         mAdapter.add(FloatingActionBottomFragment.getmInstance());
         mAdapter.add(CheckboxFragment.getmInstance());
         mAdapter.add(CardFragment.getmInstance());
+        mAdapter.add(MenuFragment.getmInstance());
+        mAdapter.reverse();
     }
 
     private void configRecyclerView() {
